@@ -8,6 +8,7 @@
 local Class = require('Module:Class')
 local Logic = require('Module:Logic')
 local Lua = require('Module:Lua')
+local Table = require('Module:Table')
 
 local IconData = Lua.import('Module:Icon/Data')
 local Icon = {}
@@ -30,19 +31,25 @@ function Icon.makeIconHtml(props)
 		return
 	end
 
-	local size = props.size
-	if Logic.isNumeric(size) then
-		size = size .. 'px'
-	end
-	return mw.html.create('i')
+	local iconHtml = mw.html.create('i')
 		:addClass(icon)
 		:addClass(props.color)
 		:addClass(Logic.isNotEmpty(props.additionalClasses) and table.concat(props.additionalClasses, ' ') or nil)
 		:attr('title', props.hover)
-		:css('font-size', size)
 		:css(props.additionalCss or {})
 		:attr('aria-hidden', props.screenReaderHidden and 'true' or nil)
 		:attr(props.attributes and props.attributes or {})
+
+	local size = props.size
+	if Table.includes({'2xs', 'xs', 'sm', 'lg', 'xl', '2xl'}, size) then
+		iconHtml:addClass('fa-' .. size)
+	else
+		if Logic.isNumeric(size) then
+			size = size .. 'px'
+		end
+		iconHtml:css('font-size', size)
+	end
+	return iconHtml
 end
 
 ---@param props IconProps
