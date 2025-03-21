@@ -23,8 +23,8 @@ local Icon = {}
 ---@field attributes table<string, string>?
 
 ---@param props IconProps
----@return string?
-function Icon.makeIcon(props)
+---@return Html?
+function Icon.makeIconHtml(props)
 	local icon = IconData[(props.iconName or ''):lower()]
 	if not icon then
 		return
@@ -34,16 +34,22 @@ function Icon.makeIcon(props)
 	if Logic.isNumeric(size) then
 		size = size .. 'px'
 	end
-	return tostring(mw.html.create('i')
-			:addClass(icon)
-			:addClass(props.color)
-			:addClass(Logic.isNotEmpty(props.additionalClasses) and table.concat(props.additionalClasses, ' ') or nil)
-			:attr('title', props.hover)
-			:css('font-size', size)
-			:css(props.additionalCss or {})
-			:attr('aria-hidden', props.screenReaderHidden and 'true' or nil)
-			:attr(props.attributes and props.attributes or {})
-	)
+	return mw.html.create('i')
+		:addClass(icon)
+		:addClass(props.color)
+		:addClass(Logic.isNotEmpty(props.additionalClasses) and table.concat(props.additionalClasses, ' ') or nil)
+		:attr('title', props.hover)
+		:css('font-size', size)
+		:css(props.additionalCss or {})
+		:attr('aria-hidden', props.screenReaderHidden and 'true' or nil)
+		:attr(props.attributes and props.attributes or {})
+end
+
+---@param props IconProps
+---@return string?
+function Icon.makeIcon(props)
+	local iconHtml = Icon.makeIconHtml(props)
+	return iconHtml and tostring(iconHtml) or nil
 end
 
 return Class.export(Icon)
