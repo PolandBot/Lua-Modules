@@ -36,11 +36,14 @@ local LiquipediaApp = Class.new(Widget)
 
 ---@param entries (string|Html|Widget|nil|(string|Html|Widget|nil)[])[][]
 ---@return Widget
-local function buildDescriptionList(entries)
+function LiquipediaApp._buildDescriptionList(entries)
 	return HtmlWidgets.Dl{
 		children = Array.map(entries, function (entry)
 			return HtmlWidgets.Dd{
-				children = WidgetUtil.collect(unpack(entry))
+				children = WidgetUtil.collect(
+					GREEN_CHECK_CIRCLE,
+					unpack(entry)
+				)
 			}
 		end)
 	}
@@ -66,19 +69,16 @@ function LiquipediaApp:render()
 				},
 				Div{
 					css = { ['line-height'] = '2.2em' },
-					children = buildDescriptionList{
+					children = LiquipediaApp._buildDescriptionList{
 						{
-							GREEN_CHECK_CIRCLE,
 							'Follow your favorite ',
 							Info.name,
 							' players and teams!'
 						},
 						{
-							GREEN_CHECK_CIRCLE,
 							'Get notifications and never miss a match again.'
 						},
 						{
-							GREEN_CHECK_CIRCLE,
 							'Available in ',
 							Array.interleave(Array.map({'ru', 'br', 'fr', 'es', 'cn', 'de', 'jp'}, function (country)
 								return Flags.Icon{shouldLink = false, flag = country}
@@ -86,7 +86,6 @@ function LiquipediaApp:render()
 							' and 12 more languages!'
 						},
 						{
-							GREEN_CHECK_CIRCLE,
 							'Spoiler-free version.'
 						}
 					}
