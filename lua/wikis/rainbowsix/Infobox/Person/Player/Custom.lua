@@ -86,7 +86,6 @@ function CustomPlayer.run(frame)
 
 	player.args.banned = tostring(player.args.banned or '')
 
-	player.args.autoTeam = true
 	player.role = player:_getRoleData(player.args.role)
 	player.role2 = player:_getRoleData(player.args.role2)
 

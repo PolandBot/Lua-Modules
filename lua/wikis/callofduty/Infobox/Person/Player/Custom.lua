@@ -40,7 +40,6 @@ function CustomPlayer.run(frame)
 	local player = CustomPlayer(frame)
 	player:setWidgetInjector(CustomInjector(player))
 
-	player.args.autoTeam = true
 	player.args.history = TeamHistoryAuto.results{
 		convertrole = true,
 		addlpdbdata = true,

@@ -75,7 +75,6 @@ function CustomPlayer.run(frame)
 		iconModule = 'Module:PositionIcon/data',
 		addlpdbdata = true,
 	}
-	player.args.autoTeam = true
 	player.role = player:_getRoleData(player.args.role)
 	player.role2 = player:_getRoleData(player.args.role2)
 	player.role3 = player:_getRoleData(player.args.role3)

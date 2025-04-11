@@ -72,7 +72,6 @@ function CustomPlayer.run(frame)
 		addlpdbdata = true,
 		specialRoles = player.args.historySpecialRoles
 	}
-	player.args.autoTeam = true
 	player.args.agents = SignaturePlayerAgents.get{player = player.pagename, top = 3}
 	player.role = player:_getRoleData(player.args.role)
 	player.role2 = player:_getRoleData(player.args.role2)

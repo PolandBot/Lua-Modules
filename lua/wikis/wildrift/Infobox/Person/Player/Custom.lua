@@ -75,7 +75,6 @@ function CustomPlayer.run(frame)
 	if String.isEmpty(player.args.history) then
 		player.args.history = TeamHistoryAuto.results{addlpdbdata = true}
 	end
-	player.args.autoTeam = true
 	player.role = player:_getRoleData(player.args.role)
 	player.role2 = player:_getRoleData(player.args.role2)
 
