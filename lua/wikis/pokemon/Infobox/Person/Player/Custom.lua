@@ -42,7 +42,6 @@ end
 ---@return Widget[]
 function CustomInjector:parse(id, widgets)
 	local caller = self.caller
-	local args = caller.args
 
 	if id == 'custom' then
 		return {
@@ -51,7 +50,7 @@ function CustomInjector:parse(id, widgets)
 	elseif id == 'region' then return {}
 	elseif id == 'role' then
 		return {
-			Cell{name = 'Role(s)', content = {self.caller.roleData.display, self.caller.roleData2.display}}
+			Cell{name = 'Role(s)', content = {caller.roleData.display, caller.roleData2.display}}
 		}
 	end
 
