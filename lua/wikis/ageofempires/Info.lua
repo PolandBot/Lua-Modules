@@ -109,5 +109,13 @@ return {
 			status = 2,
 			matchWidthMobile = 110,
 		},
+		infoboxPlayer = {
+			automatedHistory = {
+				mode = 'cleanup',
+				convertrole = true,
+				store = true,
+			},
+			autoTeam = true,
+		},
 	},
 }
