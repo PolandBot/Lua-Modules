@@ -14,7 +14,6 @@ local Role = require('Module:Role')
 local Region = require('Module:Region')
 local Math = require('Module:MathUtil')
 local String = require('Module:StringUtils')
-local TeamHistoryAuto = require('Module:TeamHistoryAuto')
 
 local Injector = Lua.import('Module:Widget/Injector')
 local Player = Lua.import('Module:Infobox/Person')
@@ -23,8 +22,6 @@ local PlayerAchievements = Lua.import('Module:Infobox/Extension/Achievements')
 
 local Widgets = require('Module:Widget/All')
 local Cell = Widgets.Cell
-local Title = Widgets.Title
-local Center = Widgets.Center
 
 local CURRENT_YEAR = tonumber(os.date('%Y'))
 
@@ -74,21 +71,6 @@ function CustomInjector:parse(id, widgets)
 				content = {args.creatorcode}
 			},
 		}
-	elseif id == 'history' then
-		local manualHistory = args.history
-		local automatedHistory = TeamHistoryAuto.results{
-			addlpdbdata = true,
-			convertrole = true,
-			player = self.caller.pagename
-		}
-
-		if String.isNotEmpty(manualHistory) or automatedHistory then
-			return {
-				Title{children = 'History'},
-				Center{children = {manualHistory}},
-				Center{children = {automatedHistory}},
-			}
-		end
 	elseif id == 'region' then return {}
 	elseif id == 'role' then
 		return {
