@@ -83,6 +83,10 @@ return {
 		},
 		infoboxPlayer = {
 			autoTeam = true,
+			automatedHistory = {
+				mode = 'manual',
+				showPositionIcon = true,
+			},
 		},
 	},
 }

@@ -110,10 +110,10 @@ return {
 			matchWidthMobile = 110,
 		},
 		infoboxPlayer = {
+			autoTeam = true,
 			automatedHistory = {
 				mode = 'cleanup',
 			},
-			autoTeam = true,
 		},
 	},
 }

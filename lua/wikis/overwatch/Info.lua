@@ -49,5 +49,11 @@ return {
 			status = 2,
 			matchWidth = 180,
 		},
+		infoboxPlayer = {
+			automatedHistory = {
+				mode = 'manual',
+				showPositionIcon = true
+			},
+		},
 	},
 }

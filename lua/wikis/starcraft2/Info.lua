@@ -65,6 +65,10 @@ return {
 		},
 		infoboxPlayer = {
 			autoTeam = true,
+			automatedHistory = {
+				mode = 'manualPrio',
+				checkForSpecialRoles = true,
+			},
 		},
 	},
 	opponentLibrary = 'Opponent/Starcraft',

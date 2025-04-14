@@ -40,6 +40,9 @@ return {
 		},
 		infoboxPlayer = {
 			autoTeam = true,
+			automatedHistory = {
+				mode = 'merge',
+			},
 		},
 	},
 	defaultRoundPrecision = 0,

@@ -65,6 +65,11 @@ return {
 		},
 		infoboxPlayer = {
 			autoTeam = true,
+			automatedHistory = {
+				mode = 'automatic',
+				checkForSpecialRoles = true,
+				hasHeaderAndRefs = true,
+			},
 		},
 	},
 	defaultRoundPrecision = 0,
