@@ -115,5 +115,8 @@ return {
 			matchWidthMobile = 110,
 			matchWidth = 180,
 		},
+		infoboxPlayer = {
+			autoTeam = true,
+		},
 	},
 }

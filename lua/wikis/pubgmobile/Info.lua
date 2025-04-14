@@ -77,6 +77,9 @@ return {
 		transfers = {
 			showTeamName = true,
 		},
+		infoboxPlayer = {
+			autoTeam = true,
+		},
 	},
 	defaultRoundPrecision = 0,
 }

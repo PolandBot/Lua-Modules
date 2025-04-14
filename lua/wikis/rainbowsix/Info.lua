@@ -63,6 +63,9 @@ return {
 			matchWidth = 180,
 			gameScoresIfBo1 = true,
 		},
+		infoboxPlayer = {
+			autoTeam = true,
+		},
 	},
 	defaultRoundPrecision = 0,
 }

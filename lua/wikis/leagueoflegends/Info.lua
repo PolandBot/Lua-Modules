@@ -44,6 +44,9 @@ return {
 				display = 'LoL Esports League-Recognized Contract Database'
 			},
 		},
+		infoboxPlayer = {
+			autoTeam = true,
+		},
 	},
 	defaultRoundPrecision = 0,
 }

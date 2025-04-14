@@ -374,6 +374,9 @@ return {
 			matchWidthMobile = 100,
 			matchWidth = 190,
 		},
+		infoboxPlayer = {
+			autoTeam = true,
+		},
 	},
 	defaultRoundPrecision = 0,
 }

@@ -35,5 +35,8 @@ return {
 		match2 = {
 			status = 1,
 		},
+		infoboxPlayer = {
+			autoTeam = true,
+		},
 	},
 }
