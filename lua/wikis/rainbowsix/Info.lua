@@ -67,7 +67,6 @@ return {
 			autoTeam = true,
 			automatedHistory = {
 				mode = 'automatic',
-				checkForSpecialRoles = true,
 				hasHeaderAndRefs = true,
 			},
 		},
