@@ -52,7 +52,6 @@ return {
 		infoboxPlayer = {
 			automatedHistory = {
 				mode = 'manual',
-				showPositionIcon = true
 			},
 		},
 	},

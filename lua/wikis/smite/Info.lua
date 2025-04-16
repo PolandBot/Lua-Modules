@@ -56,7 +56,6 @@ return {
 			autoTeam = true,
 			automatedHistory = {
 				mode = 'automatic',
-				showPositionIcon = true,
 			},
 		},
 	},
