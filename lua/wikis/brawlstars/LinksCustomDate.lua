@@ -10,5 +10,4 @@ return {
 	prefixes = {
 		matcherino = {'https://matcherino.com/supercell/tournaments/'}
 		}
-	},
 }
