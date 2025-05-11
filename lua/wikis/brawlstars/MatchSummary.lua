@@ -8,11 +8,14 @@
 
 local Array = require('Module:Array')
 local DateExt = require('Module:Date/Ext')
+local Logic = require('Module:Logic')
 local DisplayHelper = require('Module:MatchGroup/Display/Helper')
 local Lua = require('Module:Lua')
 local MapTypeIcon = require('Module:MapType')
 local Operator = require('Module:Operator')
 local String = require('Module:StringUtils')
+local Table = require('Module:Table')
+local VodLink = require('Module:VodLink')
 
 local HtmlWidgets = Lua.import('Module:Widget/Html/All')
 local LinkWidget = Lua.import('Module:Widget/Basic/Link')
