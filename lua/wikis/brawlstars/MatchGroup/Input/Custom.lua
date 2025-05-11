@@ -79,6 +79,55 @@ function MatchFunctions.getBestOf(bestofInput)
 end
 
 ---@param match table
+---@param maps table[]
+---@return table
+function MatchFunctions.getLinks(match, maps)
+	local platforms = mw.loadData('Module:MatchExternalLinks')
+	table.insert(platforms, {name = 'vod2', isMapStats = true})
+
+	return Table.map(platforms, function (key, platform)
+		if Logic.isEmpty(platform) then
+			return key, nil
+		end
+
+		local makeLink = function(platform, name, match)
+			local linkPrefix = platform.prefixLink or ''
+			local linkMidfix = platform.midfixLink or ''
+			local linkSuffix = platform.suffixLink or ''
+			local tournamentID = match[platform.tournamentID] or ''
+			return linkPrefix .. tournamentID .. linkMidfix .. name .. linkSuffix
+		end
+
+		local linksOfPlatform = {}
+		local name = platform.name
+
+		if match[name] then
+			table.insert(linksOfPlatform, {makeLink(match[name]), 0})
+		end
+
+		if platform.isMapStats then
+			Array.forEach(maps, function(map, mapIndex)
+				if not map[name] then
+					return
+				end
+				table.insert(linksOfPlatform, {makeLink(map[name]), mapIndex})
+			end)
+		elseif platform.max then
+			for i = 2, platform.max, 1 do
+				if match[name .. i] then
+					table.insert(linksOfPlatform, {makeLink(match[name .. i]), i})
+				end
+			end
+		end
+
+		if Logic.isEmpty(linksOfPlatform) then
+			return name, nil
+		end
+		return name, linksOfPlatform
+	end)
+end
+
+---@param match table
 ---@param games table[]
 ---@param opponents table[]
 ---@return table
