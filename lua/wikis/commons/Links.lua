@@ -55,6 +55,7 @@ local PREFIXES = {
 	bluesky = {'https://bsky.app/profile/'},
 	booyah = {'https://booyah.live/'},
 	bracket = {''},
+	brawlify = {'https://brawlify.com/stats/profile/'},
 	breakingpoint = {match = 'https://www.breakingpoint.gg/match/'},
 	cc = {'https://cc.163.com/'},
 	cdl = {match = 'https://callofdutyleague.com/en-us/match/'},
