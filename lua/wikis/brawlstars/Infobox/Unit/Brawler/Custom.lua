@@ -64,7 +64,8 @@ function CustomInjector:parse(id, widgets)
 			Title{children = 'Abilities'},
 			Cell{name = 'Gadgets', children = {args.gadget}},
 			Cell{name = 'Star Powers', children = {args.star}},
-			Cell{name = 'Hypercharge', children = {args.hypercharge}}
+			Cell{name = 'Hypercharge', children = {args.hypercharge}},
+			Cell{name = 'Buffies', children = {args.buffie}}
 		)
 	end
 
