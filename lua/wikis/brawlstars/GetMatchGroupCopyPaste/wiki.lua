@@ -34,6 +34,8 @@ local LIMIT_OF_PARAM = {
 	ban = 3,
 	player = 3,
 }
+local DEFAULT_GLOBAL_BANS = 2
+local DEFAULT_CASTERS = 2
 
 ---@class BrawlstarsMatch2CopyPaste: Match2CopyPasteBase
 local WikiCopyPaste = Class.new(BaseCopyPaste)
@@ -106,6 +108,46 @@ function WikiCopyPaste._pickBanParams(key, numberOfOpponents)
 			return '|t' .. opponentIndex .. shortKey .. keyIndex .. '='
 		end))
 	end)
+end
+
+-- Global bans
+local globalBans = tonumber(args.globalBans) or DEFAULT_GLOBAL_BANS
+Array.extendWith(lines, WikiCopyPaste._globalBanParams(numberOfOpponents, globalBans))
+
+-- Casters
+local casters = tonumber(args.casters) or DEFAULT_CASTERS
+Array.extendWith(lines, WikiCopyPaste._casterParams(casters))
+
+---@param numberOfOpponents integer
+---@param count integer
+---@return string[]
+function WikiCopyPaste._globalBanParams(numberOfOpponents, count)
+	local params = {}
+
+	Array.forEach(Array.range(1, numberOfOpponents), function(opponentIndex)
+		Array.forEach(Array.range(1, count), function(i)
+			table.insert(params, '|t' .. opponentIndex .. 'b' .. i .. '=')
+		end)
+	end)
+
+	return {
+		INDENT .. INDENT .. table.concat(params)
+	}
+end
+
+---@param count integer
+---@return string[]
+function WikiCopyPaste._casterParams(count)
+	local params = {}
+
+	Array.forEach(Array.range(1, count), function(i)
+		table.insert(params, '|caster' .. i .. '=')
+		table.insert(params, '|caster' .. i .. 'flag=')
+	end)
+
+	return {
+		INDENT .. INDENT .. table.concat(params)
+	}
 end
 
 return WikiCopyPaste
